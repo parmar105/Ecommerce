@@ -8,7 +8,7 @@ function HomeScreen() {
     <div className="row">
         <h1>LATEST PRODUCTS</h1>
       {products.map((product)=>
-        <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+        <div key={product._id} className="col-sm-12 col-md-6 col-lg-4 col-xl-3">
         <Product product={product}/>
         </div>
       )}
