@@ -50,6 +50,9 @@ function ProductScreen() {
                     <div className="col">Status</div>
                     <div className="col">{product.countInStock > 0 ? "In Stock" : "Out Of Stock" }</div>
                 </div>
+                <li className="list-group-item d-flex justify-content-center">
+                    <button className="btn btn-dark" type="button" disabled={product.countInStock == 0}>Add To Cart</button>
+                </li>
               </li>
             </ul>
           </div>
