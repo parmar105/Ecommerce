@@ -1,13 +1,27 @@
-import React from "react";
-import products from "../products";
+import React, {useState, useEffect} from "react";
+// import products from "../products";
 import { useParams, Link } from "react-router-dom";
 import Rating from "../components/Rating";
+import axios from 'axios'
 
 function ProductScreen() {
   const param = useParams();
   //   console.log(param);
-  const product = products.find((p) => param.id == p._id);
+  // const product = products.find((p) => param.id == p._id);
   //   console.log(product);
+
+  const [product, setProduct] = useState({})
+
+  useEffect(()=>{
+    async function fetchProducts(){
+      const {data} = await axios.get(`/api/products/${param.id}`)
+      setProduct(data)  
+    }
+    fetchProducts()
+
+  },[])
+
+  console.log("Product : ",product)
 
   return (
     <div className="container">
